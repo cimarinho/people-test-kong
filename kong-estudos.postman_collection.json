@@ -1,0 +1,1442 @@
+{
+	"info": {
+		"_postman_id": "2e83de0f-c447-4753-9bb2-27a3e9e51d10",
+		"name": "kong-estudos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "app",
+			"item": [
+				{
+					"name": "all-people",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endereco-backend}}/people",
+							"host": [
+								"{{endereco-backend}}"
+							],
+							"path": [
+								"people"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "people-cache",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endereco-backend}}/people/test",
+							"host": [
+								"{{endereco-backend}}"
+							],
+							"path": [
+								"people",
+								"test"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "people",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endereco-backend}}/people/5fd7a33f9af7235873a99357",
+							"host": [
+								"{{endereco-backend}}"
+							],
+							"path": [
+								"people",
+								"5fd7a33f9af7235873a99357"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "people",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Frodo1\",\n    \"lastName\": \"Baggins1\",\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://localhost:8080/people/5fd2122cafcefb4d91b8ce36\"\n        },\n        \"person\": {\n            \"href\": \"http://localhost:8080/people/5fd2122cafcefb4d91b8ce36\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco-backend}}/people/5fd280076f3432444fa78174",
+							"host": [
+								"{{endereco-backend}}"
+							],
+							"path": [
+								"people",
+								"5fd280076f3432444fa78174"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "people",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Frodo1\",\n    \"lastName\": \"Baggins1\",\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://localhost:8080/people/5fd2122cafcefb4d91b8ce36\"\n        },\n        \"person\": {\n            \"href\": \"http://localhost:8080/people/5fd2122cafcefb4d91b8ce36\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco-backend}}/people",
+							"host": [
+								"{{endereco-backend}}"
+							],
+							"path": [
+								"people"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "people",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Frodo1\",\n    \"lastName\": \"Baggins1\",\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://localhost:8080/people/5fd2122cafcefb4d91b8ce36\"\n        },\n        \"person\": {\n            \"href\": \"http://localhost:8080/people/5fd2122cafcefb4d91b8ce36\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco-backend}}/people/5fd7a36e9af7235873a99358",
+							"host": [
+								"{{endereco-backend}}"
+							],
+							"path": [
+								"people",
+								"5fd7a36e9af7235873a99358"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "people",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Frodo11\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco-backend}}/people/5fd7a33f9af7235873a99357",
+							"host": [
+								"{{endereco-backend}}"
+							],
+							"path": [
+								"people",
+								"5fd7a33f9af7235873a99357"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "kong-app",
+			"item": [
+				{
+					"name": "app-kong",
+					"item": [
+						{
+							"name": "kong all-people",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "host",
+										"value": "person",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url-kong}}/person/people",
+									"host": [
+										"{{url-kong}}"
+									],
+									"path": [
+										"person",
+										"people"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "kong all-people test",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "host",
+										"type": "text",
+										"value": "pessoas",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{url-kong}}/person/people/list",
+									"host": [
+										"{{url-kong}}"
+									],
+									"path": [
+										"person",
+										"people",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "person",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url-kong}}/person/people/5fd7a33f9af7235873a99357",
+									"host": [
+										"{{url-kong}}"
+									],
+									"path": [
+										"person",
+										"people",
+										"5fd7a33f9af7235873a99357"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "person test",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url-kong}}/person/people/test",
+									"host": [
+										"{{url-kong}}"
+									],
+									"path": [
+										"person",
+										"people",
+										"test"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "person",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"Frodo11\",\n    \"lastName\": \"Baggins1\",\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://localhost:8080/people/5fd2122cafcefb4d91b8ce36\"\n        },\n        \"person\": {\n            \"href\": \"http://localhost:8080/people/5fd2122cafcefb4d91b8ce36\"\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url-kong}}/person/people/5fd7a33f9af7235873a99357",
+									"host": [
+										"{{url-kong}}"
+									],
+									"path": [
+										"person",
+										"people",
+										"5fd7a33f9af7235873a99357"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "person",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"Frodo1\",\n    \"lastName\": \"Baggins1\",\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://localhost:8080/people/5fd2122cafcefb4d91b8ce36\"\n        },\n        \"person\": {\n            \"href\": \"http://localhost:8080/people/5fd2122cafcefb4d91b8ce36\"\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url-kong}}/person/people",
+									"host": [
+										"{{url-kong}}"
+									],
+									"path": [
+										"person",
+										"people"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "person",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"Frodo1\",\n    \"lastName\": \"Baggins1\",\n    \"_links\": {\n        \"self\": {\n            \"href\": \"http://localhost:8080/people/5fd2122cafcefb4d91b8ce36\"\n        },\n        \"person\": {\n            \"href\": \"http://localhost:8080/people/5fd2122cafcefb4d91b8ce36\"\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url-kong}}/person/people/5fd7a33f9af7235873a99357",
+									"host": [
+										"{{url-kong}}"
+									],
+									"path": [
+										"person",
+										"people",
+										"5fd7a33f9af7235873a99357"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "person",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"firstName\": \"Frodo1221\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/pessoa/people/5fd7a33f9af7235873a99357",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"pessoa",
+										"people",
+										"5fd7a33f9af7235873a99357"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "plugin",
+					"item": [
+						{
+							"name": "rate-limit",
+							"item": [
+								{
+									"name": "Enable Rate Limiting",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "name",
+													"value": "rate-limiting",
+													"type": "text"
+												},
+												{
+													"key": "config.minute",
+													"value": "5",
+													"type": "text"
+												},
+												{
+													"key": "port",
+													"value": "3000",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										},
+										"url": {
+											"raw": "{{endereco-kong}}/services/{{server-name}}/plugins",
+											"host": [
+												"{{endereco-kong}}"
+											],
+											"path": [
+												"services",
+												"{{server-name}}",
+												"plugins"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Enable Rate Limiting",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "name",
+													"value": "rate-limiting",
+													"type": "text"
+												},
+												{
+													"key": "config.minute",
+													"value": "10",
+													"type": "text"
+												},
+												{
+													"key": "port",
+													"value": "3000",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										},
+										"url": {
+											"raw": "{{endereco-kong}}/services/{{server-name}}/plugins/704bb6e0-4313-4b69-8dc6-44beb16c2a45",
+											"host": [
+												"{{endereco-kong}}"
+											],
+											"path": [
+												"services",
+												"{{server-name}}",
+												"plugins",
+												"704bb6e0-4313-4b69-8dc6-44beb16c2a45"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Enable Rate Limiting",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "name",
+													"value": "rate-limiting",
+													"type": "text"
+												},
+												{
+													"key": "config.second",
+													"value": "10",
+													"type": "text"
+												},
+												{
+													"key": "port",
+													"value": "3000",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										},
+										"url": {
+											"raw": "{{endereco-kong}}/services/{{server-name}}/plugins/704bb6e0-4313-4b69-8dc6-44beb16c2a45",
+											"host": [
+												"{{endereco-kong}}"
+											],
+											"path": [
+												"services",
+												"{{server-name}}",
+												"plugins",
+												"704bb6e0-4313-4b69-8dc6-44beb16c2a45"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Enable Rate Limiting",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "name",
+													"value": "rate-limiting",
+													"type": "text"
+												},
+												{
+													"key": "config.minute",
+													"value": "5",
+													"type": "text"
+												},
+												{
+													"key": "port",
+													"value": "3000",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										},
+										"url": {
+											"raw": "{{endereco-kong}}/services/{{server-name}}/plugins/704bb6e0-4313-4b69-8dc6-44beb16c2a45",
+											"host": [
+												"{{endereco-kong}}"
+											],
+											"path": [
+												"services",
+												"{{server-name}}",
+												"plugins",
+												"704bb6e0-4313-4b69-8dc6-44beb16c2a45"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Caching-plugin",
+							"item": [
+								{
+									"name": "cache",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "name",
+													"value": "proxy-cache",
+													"type": "text"
+												},
+												{
+													"key": "config.content_type",
+													"value": "application/json; charset=utf-8",
+													"type": "text",
+													"disabled": true
+												},
+												{
+													"key": "config.cache_ttl",
+													"value": "5",
+													"type": "text"
+												},
+												{
+													"key": "config.strategy",
+													"value": "memory",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{endereco-kong}}/services/{{server-name}}/plugins",
+											"host": [
+												"{{endereco-kong}}"
+											],
+											"path": [
+												"services",
+												"{{server-name}}",
+												"plugins"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "cache",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "name",
+													"value": "proxy-cache",
+													"type": "text"
+												},
+												{
+													"key": "config.content_type",
+													"value": "application/json; charset=utf-8",
+													"type": "text",
+													"disabled": true
+												},
+												{
+													"key": "config.cache_ttl",
+													"value": "20",
+													"type": "text"
+												},
+												{
+													"key": "config.strategy",
+													"value": "memory",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{endereco-kong}}/services/{{server-name}}/plugins/85f6d0be-f23c-40ae-909a-7de22fd407bc",
+											"host": [
+												"{{endereco-kong}}"
+											],
+											"path": [
+												"services",
+												"{{server-name}}",
+												"plugins",
+												"85f6d0be-f23c-40ae-909a-7de22fd407bc"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "cache",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "name",
+													"value": "proxy-cache",
+													"type": "text"
+												},
+												{
+													"key": "config.content_type",
+													"value": "application/json; charset=utf-8",
+													"type": "text"
+												},
+												{
+													"key": "config.cache_ttl",
+													"value": "30",
+													"type": "text"
+												},
+												{
+													"key": "config.strategy",
+													"value": "memory",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{endereco-kong}}/services/{{server-name}}/plugins/85f6d0be-f23c-40ae-909a-7de22fd407bc",
+											"host": [
+												"{{endereco-kong}}"
+											],
+											"path": [
+												"services",
+												"{{server-name}}",
+												"plugins",
+												"85f6d0be-f23c-40ae-909a-7de22fd407bc"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "load-balancer (upstream)",
+							"item": [
+								{
+									"name": "load",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "name",
+													"value": "{{server-name-upstream}}",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{endereco-kong}}/upstreams",
+											"host": [
+												"{{endereco-kong}}"
+											],
+											"path": [
+												"upstreams"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "load",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "name",
+													"value": "app",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										},
+										"url": {
+											"raw": "{{endereco-kong}}/upstreams",
+											"host": [
+												"{{endereco-kong}}"
+											],
+											"path": [
+												"upstreams"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "load",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "name",
+													"value": "app",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										},
+										"url": {
+											"raw": "{{endereco-kong}}/upstreams/6a10edfb-c04c-485e-ad57-682efbcc4af3",
+											"host": [
+												"{{endereco-kong}}"
+											],
+											"path": [
+												"upstreams",
+												"6a10edfb-c04c-485e-ad57-682efbcc4af3"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "update-service-create",
+									"request": {
+										"method": "PATCH",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "host",
+													"value": "{{server-name-upstream}}",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{endereco-kong}}/services/{{server-name}}",
+											"host": [
+												"{{endereco-kong}}"
+											],
+											"path": [
+												"services",
+												"{{server-name}}"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "add 2 target - 1",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "target",
+													"value": "{{upstream-backend2}}",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{endereco-kong}}/upstreams/{{server-name-upstream}}/targets",
+											"host": [
+												"{{endereco-kong}}"
+											],
+											"path": [
+												"upstreams",
+												"{{server-name-upstream}}",
+												"targets"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "add 2 target - 2",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "target",
+													"value": "{{endereco-backend2}}",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{endereco-kong}}/upstreams/{{server-name-upstream}}/targets",
+											"host": [
+												"{{endereco-kong}}"
+											],
+											"path": [
+												"upstreams",
+												"{{server-name-upstream}}",
+												"targets"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "get target - 1 e 2",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "target",
+													"value": "192.168.100.81:8080",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8001/upstreams/app/targets",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8001",
+											"path": [
+												"upstreams",
+												"app",
+												"targets"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "delete target",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "target",
+													"value": "192.168.100.81:8080",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8001/upstreams/app/targets/aa34c290-635f-4820-a918-c82c8b8167f3",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8001",
+											"path": [
+												"upstreams",
+												"app",
+												"targets",
+												"aa34c290-635f-4820-a918-c82c8b8167f3"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "konga",
+							"item": [
+								{
+									"name": "consumer",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "username",
+													"value": "konga",
+													"type": "text"
+												},
+												{
+													"key": "custom_id",
+													"value": "cebd360d-3de6-4f8f-81b2-31575fe9846a",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8001/consumers",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8001",
+											"path": [
+												"consumers"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "api-konga",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": []
+										},
+										"url": {
+											"raw": "http://localhost:8001/consumers/fd0b7eb1-b688-4289-9caf-2d83c43a6b9d/key-auth",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8001",
+											"path": [
+												"consumers",
+												"fd0b7eb1-b688-4289-9caf-2d83c43a6b9d",
+												"key-auth"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "info-plugins-por-rotas",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "port",
+											"value": "3000",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{endereco-kong}}/services/{{server-name}}/plugins",
+									"host": [
+										"{{endereco-kong}}"
+									],
+									"path": [
+										"services",
+										"{{server-name}}",
+										"plugins"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "service-and-route",
+					"item": [
+						{
+							"name": "service-app",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "{{server-name}}",
+											"type": "text"
+										},
+										{
+											"key": "url",
+											"value": "{{endereco-backend}}",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{endereco-kong}}/services",
+									"host": [
+										"{{endereco-kong}}"
+									],
+									"path": [
+										"services"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "service-app Copy",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "{{server-name}}",
+											"type": "text"
+										},
+										{
+											"key": "url",
+											"value": "{{endereco-backend}}",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{endereco-kong}}/services",
+									"host": [
+										"{{endereco-kong}}"
+									],
+									"path": [
+										"services"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "service-app",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "url",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{endereco-kong}}/services",
+									"host": [
+										"{{endereco-kong}}"
+									],
+									"path": [
+										"services"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "service-app Copy 2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "url",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{endereco-kong}}/services",
+									"host": [
+										"{{endereco-kong}}"
+									],
+									"path": [
+										"services"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "service-app (by name)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "appteste",
+											"type": "text"
+										},
+										{
+											"key": "host",
+											"value": "192.168.100.81",
+											"type": "text"
+										},
+										{
+											"key": "port",
+											"value": "8080",
+											"type": "text"
+										},
+										{
+											"key": "url",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{endereco-kong}}/services/{{server-name}}",
+									"host": [
+										"{{endereco-kong}}"
+									],
+									"path": [
+										"services",
+										"{{server-name}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "route app",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "",
+											"value": "time-api",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "paths[]",
+											"value": "/person",
+											"type": "text"
+										},
+										{
+											"key": "port",
+											"value": "3000",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{endereco-kong}}/services/{{server-name}}/routes",
+									"host": [
+										"{{endereco-kong}}"
+									],
+									"path": [
+										"services",
+										"{{server-name}}",
+										"routes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "route app",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "",
+											"value": "time-api",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "hosts[]",
+											"value": "pessoa",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "port",
+											"value": "3000",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{endereco-kong}}/services/{{server-name}}/routes",
+									"host": [
+										"{{endereco-kong}}"
+									],
+									"path": [
+										"services",
+										"{{server-name}}",
+										"routes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "service-app",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "{{server-name}}",
+											"type": "text"
+										},
+										{
+											"key": "port",
+											"value": "8080",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{endereco-kong}}/services/{{server-name}}",
+									"host": [
+										"{{endereco-kong}}"
+									],
+									"path": [
+										"services",
+										"{{server-name}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "route app",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "",
+											"value": "time-api",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "hosts[]",
+											"value": "pessoa",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "port",
+											"value": "3000",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{endereco-kong}}/services/{{server-name}}/routes/9f291f87-ee8b-4ff5-897e-2a130ed20172",
+									"host": [
+										"{{endereco-kong}}"
+									],
+									"path": [
+										"services",
+										"{{server-name}}",
+										"routes",
+										"9f291f87-ee8b-4ff5-897e-2a130ed20172"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Enable key Auth",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "key-auth",
+											"type": "text"
+										},
+										{
+											"key": "config.minute",
+											"value": "5",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "port",
+											"value": "3000",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{endereco-kong}}/services/{{server-name}}/plugins",
+									"host": [
+										"{{endereco-kong}}"
+									],
+									"path": [
+										"services",
+										"{{server-name}}",
+										"plugins"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
